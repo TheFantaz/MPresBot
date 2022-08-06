@@ -1,6 +1,6 @@
-# MPresProct (Minecraft President Bot)
+# MPresBot (Minecraft President Bot)
 
-A bot that follows you.
+A bot that follows you using Mineflayer.
 
 Chat Commands (any case):
   - "drop": Drops all items in it's inventory (except for armor)
