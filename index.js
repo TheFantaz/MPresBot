@@ -1,3 +1,4 @@
+//Use Lamda Functions!!!!!
 const mineflayer = require('mineflayer')
 const { pathfinder, Movements, goals } = require('mineflayer-pathfinder')
 const GoalFollow = goals.GoalFollow
@@ -28,6 +29,7 @@ var defaultMovementOption = null
 var followingPlayer = false
 var timer = 620
 var gameIdle = true
+var setRespawnPoint = true
 
 
 function startGame(){
@@ -77,7 +79,9 @@ function onPlayerDeath(deathData){
         startMoving(false)
     }else{
         //Player spawns near President, code can be deleted if needed
-        bot.chat("/setworldspawn")
+        if(setRespawnPoint){
+            if(bot.game.dimension === 'minecraft:overworld') bot.chat("/setworldspawn")
+        }
     }
     
 }
@@ -125,11 +129,23 @@ function dropItems(){
 
 }
 
+function changeRespawnMode(bool){
+    if(bool === 'on'){
+        setRespawnPoint = true
+        bot.chat('Bot now sets spawn when other players die (in the overworld only)')
+    }
+    else{
+        setRespawnPoint = false
+        bot.chat('Bot will not change spawn')
+    }
+}
+
 function chatFunctions(username, message){
     message = message.toLowerCase();
     if(message === 'drop') dropItems()
     else if(message === 'stats') reportStats()
     else if(message === "start game") startGame()
+    else if(message.split(' ')[0] === 'changespawn') changeRespawnMode(message.split(' ')[1])
     else if(message === 'move')  followingPlayer = !followingPlayer
     else if(message === 'stop') followingPlayer = false
     else if(message === 'start' || message === 'follow')    followingPlayer = true
