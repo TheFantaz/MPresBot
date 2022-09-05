@@ -9,7 +9,7 @@ const autoeat = require('mineflayer-auto-eat')
 //Creates the bot with it's details, the server must be Cracked or a LAN server in order to join
 //Port has to be put in manually every time you start a new LAN server, if it is a Cracked multiplayer server than 25565 works
 const bot = mineflayer.createBot({
-    host: "localhost", //For LAN, can change to a server ip
+    host: "The_Fantaz.aternos.me", //For LAN, can change to a server ip
     port: 25565,
     username: "President",
     logErrors: false
@@ -74,8 +74,9 @@ function onPlayerDeath(deathData){
     
     //The Hash is the bot's uuid, as that is how "mineflayer-death-event" shows who died. 
     //If this doesn't work, use console.log(deathData.victim.id) to see your bot's uuid 
-    if(deathData.victim.id === '13a849bf-b224-3dd7-b9ac-fed5472945ba' || deathData.victim.id === bot.entity.uuid){
-        setTimeout(() =>endGame(false),20)
+    if(deathData.victim.id === '13a849bf-b224-3dd7-b9ac-fed5472945ba' || deathData.victim.id === bot.player.uuid){
+        setTimeout(() =>endGame(false),50)
+        console.log("bsdfsdf")
         startMoving(false)
     }else{
         //Player spawns near President, code can be deleted if needed
@@ -125,7 +126,7 @@ function dropItems(){
     const item = bot.inventory.items()[0]
     bot.tossStack(item)
     //Time out (of 1 Minecraft Tick) needed to allow bot data to update
-    setTimeout(() =>dropItems(),50)
+    setTimeout(() =>dropItems(),200)
 
 }
 
