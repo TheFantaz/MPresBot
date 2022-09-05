@@ -8,3 +8,4 @@ Chat Commands (any case):
   - "follow": Follow nearest player
   - "stop": Stop moving
   - "start game": Starts the challenge
+  - "changespawn (on/off)": The bot will/won't change spawn to the bot's location when a player dies
