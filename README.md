@@ -1,6 +1,10 @@
 # MPresBot (Minecraft President Bot)
 
-A bot that follows you using Mineflayer.
+A Minecraft bot that follows the specified player. Intended to be for a fun challenge of beating the game while keeping the bot alive.
+
+## Resources Used
+- Javascript
+- Used a premade Nodejs package
 
 Chat Commands (any case):
   - "drop": Drops all items in it's inventory (except for armor)
